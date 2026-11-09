@@ -13,10 +13,10 @@
 ## Next (для нового чата)
 
 ```text
-feat/digit-validator
+feat/valid-guess
 ```
 
-Хуки уже в `bulls-and-cows`. Следующий запуск — пара `test:` и `feat:` для `createDigitValidator`. Коммиты и один push — после одобрения, когда `npm test` зелёный.
+`createDigitValidator` уже в `bulls-and-cows`. Следующий запуск — пара `test:` и `feat:` для `isValidGuess`. Коммиты и один push — после одобрения, когда `npm test` зелёный.
 
 ---
 
@@ -33,7 +33,7 @@ main
     ├── [done] docs/sdd-skeleton         # эти docs, скилл, .gitignore
     ├── [done] chore/tooling             # TypeScript, ESLint, Prettier, Jest, tsc
     ├── [done] chore/husky               # pre-commit = lint-staged, pre-push = npm test
-    ├── [    ] feat/digit-validator      # createDigitValidator, красный затем зелёный
+    ├── [done] feat/digit-validator      # createDigitValidator, красный затем зелёный
     ├── [    ] feat/valid-guess          # isValidGuess через фабрику цифр
     ├── [    ] feat/evaluate-guess       # evaluateGuess на filter/reduce
     ├── [    ] feat/generate-secret      # generateSecret(random)
