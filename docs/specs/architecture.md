@@ -4,7 +4,7 @@
 
 ## Стек
 
-- TypeScript, ESLint, Prettier, Vitest, Husky ([D-002](../decisions.md))
+- TypeScript, ESLint, Prettier, Jest, Husky ([D-002](../decisions.md), [D-012](../decisions.md))
 - Сборка страницы: `tsc` → `dist/`. Бандлера нет.
 - Деплой: GitHub Pages из артефакта workflow ([D-006](../decisions.md))
 

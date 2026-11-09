@@ -28,7 +28,7 @@ main
 ```text
 test: add failing tests for evaluateGuess
 feat: implement evaluateGuess
-chore: add typescript eslint and vitest
+chore: add typescript eslint and jest
 docs: describe algorithms in DESIGN.md
 ```
 

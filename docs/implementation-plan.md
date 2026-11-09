@@ -4,19 +4,19 @@
 
 ## SDD (читать сначала)
 
-| Артефакт | Путь |
-| --- | --- |
-| Как ведём проект | [docs/README.md](./README.md) |
+| Артефакт         | Путь                           |
+| ---------------- | ------------------------------ |
+| Как ведём проект | [docs/README.md](./README.md)  |
 | Закрытые решения | [decisions.md](./decisions.md) |
-| Спеки | [specs/](./specs/) |
-| Конвенции | [conventions/](./conventions/) |
+| Спеки            | [specs/](./specs/)             |
+| Конвенции        | [conventions/](./conventions/) |
 
 Курс (баллы, сдача): ссылки в [docs/README.md](./README.md).
 
 ## План
 
-| План шагов | Спека | Ветка |
-| --- | --- | --- |
+| План шагов           | Спека                                    | Ветка            |
+| -------------------- | ---------------------------------------- | ---------------- |
 | [plan.md](./plan.md) | [specs/overview.md](./specs/overview.md) | `bulls-and-cows` |
 
 ## Как пользоваться
@@ -30,6 +30,6 @@
 
 ## Жёсткие ограничения
 
-Делать: TypeScript во всём коде, чистые функции ядра, TDD-пары коммитов, пустой `<body>` кроме `script`, `document.createElement`, ESLint, Prettier, Husky, Vitest, `localStorage` только для рекордов, RS git convention.
+Делать: TypeScript во всём коде, чистые функции ядра, TDD-пары коммитов, пустой `<body>` кроме `script`, `document.createElement`, ESLint, Prettier, Husky, Jest, `localStorage` только для рекордов, RS git convention.
 
 Не делать: классы в игровой логике, `innerHTML` / `insertAdjacentHTML` / `DOMParser`, `alert` / `confirm` / `prompt`, lodash и другие библиотеки игровой логики, бэкенд, бандлер приложения, тесты в `pre-commit`, merge PR `bulls-and-cows` → `main`.

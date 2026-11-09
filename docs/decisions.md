@@ -35,18 +35,18 @@ main
 
 ---
 
-## D-002: Стек — TypeScript, tsc, Vitest, без бандлера страницы
+## D-002: Стек — TypeScript, tsc, Jest, без бандлера страницы
 
 - Status: Accepted
 - Date: 2026-11-09
 - Почему: задание требует TypeScript и считает бандлер необязательным, а примеры расходятся в объёме обвязки
 
 - TypeScript для ядра и UI. Сборка приложения — `tsc` в ES-модули, каталог `dist/`. `dist/` в `.gitignore`.
-- Тесты — Vitest, `npm test` = `vitest run --passWithNoTests`. Пустой набор на коммите инструментов проходит.
+- Тесты — Jest. Команда и конфиг: [D-012](#d-012-тесты--jest).
 - ESLint (flat config) + Prettier + `eslint-config-prettier`. Скрипты `lint` и `format`.
 - Husky: `pre-commit` запускает только `lint-staged`; `pre-push` запускает `npm test`. Commitlint не ставим.
 - Страницу в браузере открывать через статический сервер после `npm run build`. Для локальной проверки хватает `npx serve`, отдельный dev-сервер в зависимости не добавлять.
-- Не переносить из примеров: Vite и ui-kit из [snischuk/bulls-and-cows](https://github.com/snischuk/bulls-and-cows/tree/bulls-and-cows), темы, переводы, `commit-msg`. У [kravchuk-st/bulls-and-cows](https://github.com/kravchuk-st/bulls-and-cows/tree/bulls-and-cows) берём только границу «ядро / экран / tsc / Vitest», не файлы.
+- Не переносить из примеров: Vite и ui-kit из [snischuk/bulls-and-cows](https://github.com/snischuk/bulls-and-cows/tree/bulls-and-cows), темы, переводы, `commit-msg`. У [kravchuk-st/bulls-and-cows](https://github.com/kravchuk-st/bulls-and-cows/tree/bulls-and-cows) берём только границу «ядро / экран / tsc», не файлы. Раннер у них Vitest; у нас Jest, см. [D-012](#d-012-тесты--jest).
 
 ---
 
@@ -181,3 +181,18 @@ src/core/*.test.ts         → рядом с модулем, tsc их не эм�
 Все шаги после `docs/sdd-skeleton` коммитятся в `bulls-and-cows`. Эта ветка — [PR #1](https://github.com/Bogagree/bulls-and-cows/pull/1). Отдельный PR на пункт плана не открывать и не мержить.
 
 `git commit` и `git push` делать только после явного одобрения в текущем чате. До одобрения изменение остаётся в рабочей копии.
+
+---
+
+## D-012: Тесты — Jest
+
+- Status: Accepted
+- Date: 2026-11-09
+- Почему: курс разрешает Jest или Vitest, для этого репозитория выбран Jest
+
+Заменяет раннер из [D-002](#d-002-стек--typescript-tsc-jest-без-бандлера-страницы).
+
+- Пакет `jest`. Vitest и `vitest.config.ts` не используем.
+- `npm test` запускает `node --experimental-vm-modules ./node_modules/jest/bin/jest.js --passWithNoTests`. Пустой набор проходит.
+- Конфиг `jest.config.js`: `testEnvironment` = `node`, `extensionsToTreatAsEsm` = `[".ts"]`, `transform` = `{}`. Типы снимает Node, `ts-jest` и `babel-jest` не подключаем.
+- Файлы тестов — `*.test.ts` рядом с модулем. DOM-тестов нет.
