@@ -194,5 +194,5 @@ src/core/*.test.ts         → рядом с модулем, tsc их не эм�
 
 - Пакет `jest`. Vitest и `vitest.config.ts` не используем.
 - `npm test` запускает `node --experimental-vm-modules ./node_modules/jest/bin/jest.js --passWithNoTests`. Пустой набор проходит.
-- Конфиг `jest.config.js`: `testEnvironment` = `node`, `extensionsToTreatAsEsm` = `[".ts"]`, `transform` = `{}`. Типы снимает Node, `ts-jest` и `babel-jest` не подключаем.
+- Конфиг `jest.config.js`: `testEnvironment` = `node`, `extensionsToTreatAsEsm` = `[".ts"]`, `transform` = `{}`. `moduleNameMapper` снимает суффикс `.js` у относительного импорта, чтобы резолвился соседний `.ts`. Типы снимает Node, `ts-jest` и `babel-jest` не подключаем.
 - Файлы тестов — `*.test.ts` рядом с модулем. DOM-тестов нет.

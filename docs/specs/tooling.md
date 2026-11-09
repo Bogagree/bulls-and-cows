@@ -10,7 +10,7 @@
 
 - `package.json` с `"type": "module"` и скриптами `lint`, `format`, `test`, `build`.
 - `npm test` запускает `node --experimental-vm-modules ./node_modules/jest/bin/jest.js --passWithNoTests` и на этом шаге заканчивается успехом без файлов тестов.
-- `jest.config.js`: `testEnvironment` = `node`, `extensionsToTreatAsEsm` = `[".ts"]`, `transform` = `{}`. TypeScript в тестах исполняет Node, без `ts-jest` и `babel-jest`.
+- `jest.config.js`: `testEnvironment` = `node`, `extensionsToTreatAsEsm` = `[".ts"]`, `transform` = `{}`. `moduleNameMapper` снимает суффикс `.js` у относительного импорта, чтобы Jest открыл соседний `.ts`. TypeScript в тестах исполняет Node, без `ts-jest` и `babel-jest`.
 - `npm run build` запускает `tsc`. `tsconfig` строгий, `rootDir` = `src`, `outDir` = `dist`, тесты исключены.
 - ESLint flat config с `typescript-eslint` и `eslint-config-prettier`. В `src/core` (каталог может появиться позже, правило задаётся сразу) `ClassDeclaration` запрещён.
 - Prettier со штатными настройками. `.prettierignore` исключает `dist/`, `coverage/`, `node_modules/`.
