@@ -1,6 +1,6 @@
 # Сдача
 
-Текст для PR `bulls-and-cows` → `main`. До шага `feat/readme-deploy` этот чеклист не вставлять в feature-PR. PR не мержить.
+Текст для PR #1 `bulls-and-cows` → `main`. До шага `feat/readme-deploy` этот чеклист в описание не вставлять. PR не мержить.
 
 ## Bulls and Cows
 

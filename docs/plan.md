@@ -4,7 +4,7 @@
 Спека продукта: [specs/overview.md](./specs/overview.md).
 Канон: [README задания](https://github.com/rolling-scopes-school/tasks/blob/master/fullstack-engineering/tasks/bulls-and-cows/README.md) (**150** баллов).
 
-База: ветка `bulls-and-cows`. Фичи мержим сюда. PR `bulls-and-cows` → `main` на cross-check **не мержить**.
+База: ветка `bulls-and-cows`, она же [PR #1](https://github.com/Bogagree/bulls-and-cows/pull/1) в `main`. Шаги коммитятся прямо сюда после одобрения. Отдельный PR на шаг не открывать. PR #1 не мержить.
 
 `main` остаётся с текущим `readme.md`. Код, спеки и инструменты живут в `bulls-and-cows`.
 
@@ -13,10 +13,10 @@
 ## Next (для нового чата)
 
 ```text
-chore/tooling
+chore/husky
 ```
 
-Скелет документации влит в `bulls-and-cows`. Следующий запуск пишет инструменты, не игру.
+Инструменты уже в `bulls-and-cows`. Следующий запуск ставит хуки, не игру. Коммит и push — после одобрения.
 
 ---
 
@@ -31,7 +31,7 @@ chore/tooling
 main
 └── bulls-and-cows
     ├── [done] docs/sdd-skeleton         # эти docs, скилл, .gitignore
-    ├── [    ] chore/tooling             # TypeScript, ESLint, Prettier, Vitest, tsc
+    ├── [done] chore/tooling             # TypeScript, ESLint, Prettier, Vitest, tsc
     ├── [    ] chore/husky               # pre-commit = lint-staged, pre-push = npm test
     ├── [    ] feat/digit-validator      # createDigitValidator, красный затем зелёный
     ├── [    ] feat/valid-guess          # isValidGuess через фабрику цифр
