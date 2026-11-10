@@ -13,10 +13,10 @@
 ## Next (для нового чата)
 
 ```text
-feat/leaderboard-core
+feat/app-shell
 ```
 
-`startRound` и `applyGuess` уже в `bulls-and-cows`. Следующий запуск — пара `test:` и `feat:` для `addResult`, `topResults` и `formatDuration`. Коммиты и один push — после одобрения, когда `npm test` зелёный.
+Таблица рекордов уже в `bulls-and-cows`. Следующий запуск — `feat/app-shell`: пустой `body`, `el()` и каркас экрана.
 
 ---
 
@@ -39,7 +39,7 @@ main
     ├── [done] feat/generate-secret      # generateSecret(random)
     ├── [done] feat/possible-secrets     # рекурсия + мемоизация
     ├── [done] feat/game-state           # иммутабельный раунд, повтор, победа
-    ├── [    ] feat/leaderboard-core     # сортировка топа и формат времени
+    ├── [done] feat/leaderboard-core     # сортировка топа и формат времени
     ├── [    ] feat/app-shell            # пустой body, el(), каркас экрана
     ├── [    ] feat/settings             # длина, система счисления, старт раунда
     ├── [    ] feat/guess                # ввод, история bulls/cows, повтор
