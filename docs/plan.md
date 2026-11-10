@@ -13,10 +13,10 @@
 ## Next (для нового чата)
 
 ```text
-feat/guess
+feat/win
 ```
 
-Настройки уже в `bulls-and-cows`. Следующий запуск — ввод попытки, история быков и коров и повтор.
+Ввод попытки уже в `bulls-and-cows`. Следующий запуск — победа: попытки и замершее время.
 
 ---
 
@@ -42,7 +42,7 @@ main
     ├── [done] feat/leaderboard-core     # сортировка топа и формат времени
     ├── [done] feat/app-shell            # пустой body, el(), каркас экрана
     ├── [done] feat/settings             # длина, система счисления, старт раунда
-    ├── [    ] feat/guess                # ввод, история bulls/cows, повтор
+    ├── [done] feat/guess                # ввод, история bulls/cows, повтор
     ├── [    ] feat/win                  # победа, попытки, замершее время
     ├── [    ] feat/leaderboard          # запись в localStorage и таблица
     ├── [    ] feat/new-game             # назад к настройкам без перезагрузки

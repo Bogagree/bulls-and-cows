@@ -1,5 +1,6 @@
 import { startRound, type Round, type Settings } from "./core/game-state.js";
 import { el } from "./dom.js";
+import { createRoundScreen } from "./ui/game-screen.js";
 import { createSettingsScreen } from "./ui/settings-screen.js";
 
 const BASE_LABEL: Record<number, string> = {
@@ -17,15 +18,7 @@ const settings = createSettingsScreen((chosen: Settings) => {
   const label = BASE_LABEL[round.base] ?? "";
 
   roundSlot.replaceChildren(
-    el("section", {
-      className: "round",
-      children: [
-        el("p", {
-          className: "round__mode",
-          text: `${round.length} · ${label}`,
-        }),
-      ],
-    }),
+    createRoundScreen(round, `${round.length} · ${label}`),
   );
 });
 

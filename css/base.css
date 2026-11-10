@@ -1,12 +1,14 @@
 :root {
-  color-scheme: light;
-  --color-bg: #f4f1ea;
-  --color-surface: #fffdf8;
-  --color-text: #1c1915;
-  --color-line: #d9d1c3;
+  color-scheme: dark;
+  --color-bg: #070514;
+  --color-surface: #120c22;
+  --color-text: #e7fbff;
+  --color-line: #05d9e8;
+  --color-accent: #ff2a6d;
   --space-s: 8px;
   --space-m: 16px;
   --space-l: 24px;
+  --radius: 8px;
   --font: "Segoe UI", sans-serif;
 }
 
@@ -21,9 +23,20 @@ body {
   min-width: 360px;
   font-family: var(--font);
   color: var(--color-text);
-  background: var(--color-bg);
+  background: radial-gradient(circle at top, #1a0b33 0%, var(--color-bg) 46%);
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
 }
 
 button {
-  font: inherit;
+  border-radius: var(--radius);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
 }
