@@ -13,10 +13,10 @@
 ## Next (для нового чата)
 
 ```text
-feat/app-shell
+feat/settings
 ```
 
-Таблица рекордов уже в `bulls-and-cows`. Следующий запуск — `feat/app-shell`: пустой `body`, `el()` и каркас экрана.
+Каркас экрана уже в `bulls-and-cows`. Следующий запуск — настройки: длина, система счисления и старт раунда.
 
 ---
 
@@ -40,7 +40,7 @@ main
     ├── [done] feat/possible-secrets     # рекурсия + мемоизация
     ├── [done] feat/game-state           # иммутабельный раунд, повтор, победа
     ├── [done] feat/leaderboard-core     # сортировка топа и формат времени
-    ├── [    ] feat/app-shell            # пустой body, el(), каркас экрана
+    ├── [done] feat/app-shell            # пустой body, el(), каркас экрана
     ├── [    ] feat/settings             # длина, система счисления, старт раунда
     ├── [    ] feat/guess                # ввод, история bulls/cows, повтор
     ├── [    ] feat/win                  # победа, попытки, замершее время

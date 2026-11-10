@@ -1,0 +1,29 @@
+:root {
+  color-scheme: light;
+  --color-bg: #f4f1ea;
+  --color-surface: #fffdf8;
+  --color-text: #1c1915;
+  --color-line: #d9d1c3;
+  --space-s: 8px;
+  --space-m: 16px;
+  --space-l: 24px;
+  --font: "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 360px;
+  font-family: var(--font);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+button {
+  font: inherit;
+}
