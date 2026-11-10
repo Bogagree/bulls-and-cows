@@ -16,9 +16,10 @@ const radio = (name: string, value: string): HTMLInputElement =>
     attrs: { type: "radio", name, value },
   });
 
-export function createSettingsScreen(
-  onStart: (settings: Settings) => void,
-): HTMLElement {
+export function createSettingsScreen(onStart: (settings: Settings) => void): {
+  element: HTMLElement;
+  unlock: () => void;
+} {
   const baseOptions = BASES.map((item) => {
     const input = radio("base", String(item.base));
 
@@ -102,31 +103,42 @@ export function createSettingsScreen(
     onStart(settings);
   });
 
-  return el("section", {
-    className: "settings",
-    children: [
-      el("fieldset", {
-        className: "settings__base",
-        children: [
-          el("legend", { text: "Система счисления" }),
-          el("div", {
-            className: "settings__options",
-            children: baseOptions.map((item) => item.option),
-          }),
-        ],
-      }),
-      el("fieldset", {
-        className: "settings__length",
-        children: [
-          el("legend", { text: "Длина" }),
-          el("div", {
-            className: "settings__options",
-            children: lengthOptions.map((item) => item.option),
-          }),
-        ],
-      }),
-      count,
-      startButton,
-    ],
-  });
+  const unlock = (): void => {
+    for (const item of baseOptions) {
+      item.input.disabled = false;
+    }
+    startButton.disabled = false;
+    sync();
+  };
+
+  return {
+    element: el("section", {
+      className: "settings",
+      children: [
+        el("fieldset", {
+          className: "settings__base",
+          children: [
+            el("legend", { text: "Система счисления" }),
+            el("div", {
+              className: "settings__options",
+              children: baseOptions.map((item) => item.option),
+            }),
+          ],
+        }),
+        el("fieldset", {
+          className: "settings__length",
+          children: [
+            el("legend", { text: "Длина" }),
+            el("div", {
+              className: "settings__options",
+              children: lengthOptions.map((item) => item.option),
+            }),
+          ],
+        }),
+        count,
+        startButton,
+      ],
+    }),
+    unlock,
+  };
 }

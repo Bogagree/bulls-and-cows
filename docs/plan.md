@@ -13,10 +13,10 @@
 ## Next (для нового чата)
 
 ```text
-feat/new-game
+docs/design
 ```
 
-Рекорды уже в `bulls-and-cows`. Следующий запуск — «Новая игра» без перезагрузки.
+«Новая игра» уже в `bulls-and-cows`. Следующий запуск — `DESIGN.md` по уже написанному коду.
 
 ---
 
@@ -45,7 +45,7 @@ main
     ├── [done] feat/guess                # ввод, история bulls/cows, повтор
     ├── [done] feat/win                  # победа, попытки, замершее время
     ├── [done] feat/leaderboard          # запись в localStorage и таблица
-    ├── [    ] feat/new-game             # назад к настройкам без перезагрузки
+    ├── [done] feat/new-game             # назад к настройкам без перезагрузки
     ├── [    ] docs/design               # DESIGN.md по уже написанному коду
     └── [    ] feat/readme-deploy        # запуск, Pages, текст сдаточного PR
 ```

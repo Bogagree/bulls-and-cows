@@ -8,7 +8,7 @@ export function createRoundScreen(
   initial: Round,
   modeLabel: string,
   onWin: (round: Round) => void = () => {},
-): HTMLElement {
+): { element: HTMLElement; stop: () => void } {
   let round = initial;
   let recorded = false;
   const isDigit = createDigitValidator(round.base);
@@ -161,5 +161,10 @@ export function createRoundScreen(
     clock.textContent = formatDuration(Date.now() - round.startedAt);
   }, 1000);
 
-  return section;
+  return {
+    element: section,
+    stop: () => {
+      window.clearInterval(clockId);
+    },
+  };
 }

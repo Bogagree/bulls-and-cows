@@ -14,6 +14,7 @@ const BASE_LABEL: Record<number, string> = {
 };
 
 let round: Round | null = null;
+let stopRound = (): void => {};
 let results = loadResults(localStorage);
 const roundSlot = el("div", { className: "round-slot" });
 const records = createRecordsScreen(results);
@@ -40,9 +41,27 @@ const settings = createSettingsScreen((chosen: Settings) => {
   round = startRound(chosen, Math.random, Date.now());
   const label = BASE_LABEL[round.base] ?? "";
 
-  roundSlot.replaceChildren(
-    createRoundScreen(round, `${round.length} · ${label}`, rememberWin),
+  const view = createRoundScreen(
+    round,
+    `${round.length} · ${label}`,
+    rememberWin,
   );
+  stopRound = view.stop;
+  roundSlot.replaceChildren(view.element);
+});
+
+const newGame = el("button", {
+  className: "app__new-game",
+  text: "Новая игра",
+  attrs: { type: "button" },
+});
+
+newGame.addEventListener("click", () => {
+  stopRound();
+  stopRound = () => {};
+  round = null;
+  roundSlot.replaceChildren();
+  settings.unlock();
 });
 
 const screen = el("main", {
@@ -52,14 +71,10 @@ const screen = el("main", {
       className: "app__header",
       children: [
         el("h1", { className: "app__title", text: "Быки и коровы" }),
-        el("button", {
-          className: "app__new-game",
-          text: "Новая игра",
-          attrs: { type: "button" },
-        }),
+        newGame,
       ],
     }),
-    settings,
+    settings.element,
     roundSlot,
     records.element,
   ],
