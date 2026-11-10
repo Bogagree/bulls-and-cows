@@ -1,0 +1,226 @@
+.app {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: var(--space-l) var(--space-m);
+}
+
+.app__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+}
+
+.app__title {
+  margin: 0;
+  font-size: 1.75rem;
+  color: var(--color-line);
+  text-shadow: 0 0 12px color-mix(in srgb, var(--color-line) 65%, transparent);
+}
+
+.app__new-game {
+  border: 1px solid var(--color-accent);
+  background: var(--color-surface);
+  padding: var(--space-s) var(--space-m);
+  cursor: pointer;
+}
+
+.app__new-game:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.settings {
+  display: grid;
+  gap: var(--space-m);
+  margin-top: var(--space-l);
+}
+
+.settings fieldset {
+  margin: 0;
+  padding: var(--space-m);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.settings__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s) var(--space-m);
+}
+
+.settings__option {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.settings__option input {
+  accent-color: var(--color-accent);
+}
+
+.settings__option:has(input:disabled) {
+  opacity: 0.45;
+}
+
+.settings__count {
+  margin: 0;
+}
+
+.settings__start {
+  justify-self: start;
+  border: 1px solid var(--color-accent);
+  background: var(--color-surface);
+  padding: var(--space-s) var(--space-m);
+  cursor: pointer;
+}
+
+.settings__start:hover:not(:disabled) {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.settings__start:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.round {
+  margin-top: var(--space-l);
+  padding: var(--space-m);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.round__mode {
+  margin: 0;
+}
+
+.round__time {
+  margin: var(--space-m) 0 0;
+  color: var(--color-line);
+}
+
+.round__win:empty {
+  display: none;
+}
+
+.round__win {
+  display: grid;
+  gap: var(--space-s);
+  margin-top: var(--space-m);
+}
+
+.round__win p {
+  margin: 0;
+}
+
+.round__win p:first-child {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.round__message {
+  min-height: 1.25rem;
+  margin: var(--space-m) 0 0;
+  color: var(--color-accent);
+}
+
+.guess-form {
+  display: grid;
+  gap: var(--space-s);
+  margin-top: var(--space-s);
+}
+
+.guess-form__label {
+  font-weight: 600;
+}
+
+.guess-form__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+}
+
+.guess-form__input {
+  flex: 1 1 8rem;
+  min-width: 0;
+  padding: var(--space-s);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  font: inherit;
+  caret-color: var(--color-line);
+}
+
+.guess-form__check {
+  border: 1px solid var(--color-accent);
+  background: var(--color-surface);
+  padding: var(--space-s) var(--space-m);
+  cursor: pointer;
+}
+
+.guess-form__check:hover:not(:disabled) {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.guess-form__check:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.history {
+  margin-top: var(--space-m);
+}
+
+.history__list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.history__row + .history__row {
+  margin-top: var(--space-s);
+}
+
+.history__empty {
+  margin: 0;
+}
+
+.records {
+  margin-top: var(--space-l);
+  padding: var(--space-m);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+}
+
+.records__title {
+  margin: 0 0 var(--space-s);
+  font-size: 1.25rem;
+  color: var(--color-line);
+}
+
+.records__empty {
+  margin: 0;
+}
+
+.records__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.records__table th,
+.records__table td {
+  padding: var(--space-s) 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.records__table th {
+  color: var(--color-line);
+  font-weight: 600;
+}
