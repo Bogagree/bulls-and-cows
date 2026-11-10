@@ -1,4 +1,33 @@
+import { startRound, type Round, type Settings } from "./core/game-state.js";
 import { el } from "./dom.js";
+import { createSettingsScreen } from "./ui/settings-screen.js";
+
+const BASE_LABEL: Record<number, string> = {
+  2: "двоичная",
+  8: "восьмеричная",
+  10: "десятичная",
+  16: "шестнадцатеричная",
+};
+
+let round: Round | null = null;
+const roundSlot = el("div", { className: "round-slot" });
+
+const settings = createSettingsScreen((chosen: Settings) => {
+  round = startRound(chosen, Math.random, Date.now());
+  const label = BASE_LABEL[round.base] ?? "";
+
+  roundSlot.replaceChildren(
+    el("section", {
+      className: "round",
+      children: [
+        el("p", {
+          className: "round__mode",
+          text: `${round.length} · ${label}`,
+        }),
+      ],
+    }),
+  );
+});
 
 const screen = el("main", {
   className: "app",
@@ -14,6 +43,8 @@ const screen = el("main", {
         }),
       ],
     }),
+    settings,
+    roundSlot,
     el("section", {
       className: "records",
       children: [

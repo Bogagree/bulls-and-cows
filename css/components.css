@@ -24,6 +24,63 @@
   cursor: pointer;
 }
 
+.settings {
+  display: grid;
+  gap: var(--space-m);
+  margin-top: var(--space-l);
+}
+
+.settings fieldset {
+  margin: 0;
+  padding: var(--space-m);
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+}
+
+.settings__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s) var(--space-m);
+}
+
+.settings__option {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.settings__option:has(input:disabled) {
+  opacity: 0.45;
+}
+
+.settings__count {
+  margin: 0;
+}
+
+.settings__start {
+  justify-self: start;
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+  padding: var(--space-s) var(--space-m);
+  cursor: pointer;
+}
+
+.settings__start:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.round {
+  margin-top: var(--space-l);
+  padding: var(--space-m);
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+}
+
+.round__mode {
+  margin: 0;
+}
+
 .records {
   margin-top: var(--space-l);
   padding: var(--space-m);
