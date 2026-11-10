@@ -70,15 +70,17 @@ export function isValidGuess(
 ## `evaluateGuess`
 
 ```ts
-export function evaluateGuess(
-  secret: string,
-  guess: string,
-): { bulls: number; cows: number };
+export type GuessScore = {
+  bulls: number;
+  cows: number;
+};
+
+export function evaluateGuess(secret: string, guess: string): GuessScore;
 ```
 
-Обе строки приводятся к нижнему регистру. Бык — тот же символ на том же индексе. Корова — символ есть в секрете, но на этом индексе он не бык. Цифры в секрете уникальны, поэтому корову можно узнать принадлежностью к множеству.
+Обе строки приводятся к нижнему регистру и разбираются через `split("")`. Бык — тот же символ на том же индексе. Корова — символ есть в секрете, но на этом индексе он не бык. Цифры в секрете уникальны, поэтому корову можно узнать через `includes`.
 
-Считать через `filter` / `reduce`, без цикла `for` / `while`, который сам увеличивает счётчики. Множество символов секрета собирается `reduce`.
+Быков и коров считать через `filter`, без цикла `for` / `while`, который сам увеличивает счётчики.
 
 | secret   | guess    | bulls | cows |
 | -------- | -------- | ----- | ---- |
