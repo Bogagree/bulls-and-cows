@@ -13,10 +13,10 @@
 ## Next (для нового чата)
 
 ```text
-feat/readme-deploy
+план закрыт
 ```
 
-`DESIGN.md` уже в `bulls-and-cows`. Следующий запуск — деплой и текст сдаточного PR.
+Деплой и текст сдаточного PR уже в `bulls-and-cows`. Следующего шага нет. PR #1 не мержить.
 
 ---
 
@@ -47,7 +47,7 @@ main
     ├── [done] feat/leaderboard          # запись в localStorage и таблица
     ├── [done] feat/new-game             # назад к настройкам без перезагрузки
     ├── [done] docs/design               # DESIGN.md по уже написанному коду
-    └── [    ] feat/readme-deploy        # запуск, Pages, текст сдаточного PR
+    └── [done] feat/readme-deploy        # запуск, Pages, текст сдаточного PR
 ```
 
 | Шаг                     | Спека                                                            | Что закрывает                                           |
