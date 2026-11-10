@@ -13,10 +13,10 @@
 ## Next (для нового чата)
 
 ```text
-feat/possible-secrets
+feat/game-state
 ```
 
-`generateSecret` уже в `bulls-and-cows`. Следующий запуск — пара `test:` и `feat:` для `countPossibleSecrets`. Коммиты и один push — после одобрения, когда `npm test` зелёный.
+`countPossibleSecrets` уже в `bulls-and-cows`. Следующий запуск — пара `test:` и `feat:` для `startRound` и `applyGuess`. Коммиты и один push — после одобрения, когда `npm test` зелёный.
 
 ---
 
@@ -37,7 +37,7 @@ main
     ├── [done] feat/valid-guess          # isValidGuess через фабрику цифр
     ├── [done] feat/evaluate-guess       # evaluateGuess на filter
     ├── [done] feat/generate-secret      # generateSecret(random)
-    ├── [    ] feat/possible-secrets     # рекурсия + мемоизация
+    ├── [done] feat/possible-secrets     # рекурсия + мемоизация
     ├── [    ] feat/game-state           # иммутабельный раунд, повтор, победа
     ├── [    ] feat/leaderboard-core     # сортировка топа и формат времени
     ├── [    ] feat/app-shell            # пустой body, el(), каркас экрана
