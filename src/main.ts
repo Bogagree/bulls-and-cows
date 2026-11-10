@@ -1,6 +1,9 @@
+import { addResult, type Result } from "./core/leaderboard.js";
 import { startRound, type Round, type Settings } from "./core/game-state.js";
 import { el } from "./dom.js";
+import { loadResults, saveResults } from "./storage.js";
 import { createRoundScreen } from "./ui/game-screen.js";
+import { createRecordsScreen } from "./ui/records-screen.js";
 import { createSettingsScreen } from "./ui/settings-screen.js";
 
 const BASE_LABEL: Record<number, string> = {
@@ -11,14 +14,34 @@ const BASE_LABEL: Record<number, string> = {
 };
 
 let round: Round | null = null;
+let results = loadResults(localStorage);
 const roundSlot = el("div", { className: "round-slot" });
+const records = createRecordsScreen(results);
+
+const rememberWin = (won: Round): void => {
+  if (won.finishedAt === null) {
+    return;
+  }
+
+  const result: Result = {
+    attempts: won.history.length,
+    elapsedMs: won.finishedAt - won.startedAt,
+    length: won.length,
+    base: won.base,
+    playedAt: new Date(won.finishedAt).toISOString(),
+  };
+
+  results = addResult(results, result);
+  saveResults(localStorage, results);
+  records.show(results);
+};
 
 const settings = createSettingsScreen((chosen: Settings) => {
   round = startRound(chosen, Math.random, Date.now());
   const label = BASE_LABEL[round.base] ?? "";
 
   roundSlot.replaceChildren(
-    createRoundScreen(round, `${round.length} · ${label}`),
+    createRoundScreen(round, `${round.length} · ${label}`, rememberWin),
   );
 });
 
@@ -38,13 +61,7 @@ const screen = el("main", {
     }),
     settings,
     roundSlot,
-    el("section", {
-      className: "records",
-      children: [
-        el("h2", { className: "records__title", text: "Рекорды" }),
-        el("p", { className: "records__empty", text: "Пока нет результатов" }),
-      ],
-    }),
+    records.element,
   ],
 });
 

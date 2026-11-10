@@ -13,10 +13,10 @@
 ## Next (для нового чата)
 
 ```text
-feat/leaderboard
+feat/new-game
 ```
 
-Победа уже в `bulls-and-cows`. Следующий запуск — запись результата и таблица рекордов.
+Рекорды уже в `bulls-and-cows`. Следующий запуск — «Новая игра» без перезагрузки.
 
 ---
 
@@ -44,7 +44,7 @@ main
     ├── [done] feat/settings             # длина, система счисления, старт раунда
     ├── [done] feat/guess                # ввод, история bulls/cows, повтор
     ├── [done] feat/win                  # победа, попытки, замершее время
-    ├── [    ] feat/leaderboard          # запись в localStorage и таблица
+    ├── [done] feat/leaderboard          # запись в localStorage и таблица
     ├── [    ] feat/new-game             # назад к настройкам без перезагрузки
     ├── [    ] docs/design               # DESIGN.md по уже написанному коду
     └── [    ] feat/readme-deploy        # запуск, Pages, текст сдаточного PR

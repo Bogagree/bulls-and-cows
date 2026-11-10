@@ -207,3 +207,20 @@
 .records__empty {
   margin: 0;
 }
+
+.records__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.records__table th,
+.records__table td {
+  padding: var(--space-s) 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.records__table th {
+  color: var(--color-line);
+  font-weight: 600;
+}

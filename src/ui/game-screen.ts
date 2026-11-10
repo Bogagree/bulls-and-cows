@@ -7,8 +7,10 @@ import { el } from "../dom.js";
 export function createRoundScreen(
   initial: Round,
   modeLabel: string,
+  onWin: (round: Round) => void = () => {},
 ): HTMLElement {
   let round = initial;
+  let recorded = false;
   const isDigit = createDigitValidator(round.base);
   const input = el("input", {
     className: "guess-form__input",
@@ -98,6 +100,13 @@ export function createRoundScreen(
       el("p", { text: `Попыток: ${round.history.length}` }),
       el("p", { text: `Секрет: ${round.secret}` }),
     );
+
+    if (recorded) {
+      return;
+    }
+
+    recorded = true;
+    onWin(round);
   };
 
   input.addEventListener("keydown", (event) => {
