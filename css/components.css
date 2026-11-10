@@ -99,6 +99,30 @@
   margin: 0;
 }
 
+.round__time {
+  margin: var(--space-m) 0 0;
+  color: var(--color-line);
+}
+
+.round__win:empty {
+  display: none;
+}
+
+.round__win {
+  display: grid;
+  gap: var(--space-s);
+  margin-top: var(--space-m);
+}
+
+.round__win p {
+  margin: 0;
+}
+
+.round__win p:first-child {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
 .round__message {
   min-height: 1.25rem;
   margin: var(--space-m) 0 0;

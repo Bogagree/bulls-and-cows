@@ -1,4 +1,5 @@
 import { createDigitValidator } from "../core/create-digit-validator.js";
+import { formatDuration } from "../core/format-duration.js";
 import { applyGuess, type Round } from "../core/game-state.js";
 import { isValidGuess } from "../core/is-valid-guess.js";
 import { el } from "../dom.js";
@@ -24,7 +25,12 @@ export function createRoundScreen(
     text: "Проверить",
     attrs: { type: "submit" },
   });
+  const clock = el("p", {
+    className: "round__time",
+    text: formatDuration(Date.now() - initial.startedAt),
+  });
   const message = el("p", { className: "round__message" });
+  const win = el("div", { className: "round__win" });
   const history = el("div", { className: "history" });
 
   checkButton.disabled = true;
@@ -79,6 +85,19 @@ export function createRoundScreen(
     input.value = "";
     checkButton.disabled = true;
     renderHistory();
+
+    if (round.status !== "won" || round.finishedAt === null) {
+      return;
+    }
+
+    window.clearInterval(clockId);
+    input.disabled = true;
+    clock.textContent = formatDuration(round.finishedAt - round.startedAt);
+    win.replaceChildren(
+      el("p", { text: "Вы угадали" }),
+      el("p", { text: `Попыток: ${round.history.length}` }),
+      el("p", { text: `Секрет: ${round.secret}` }),
+    );
   };
 
   input.addEventListener("keydown", (event) => {
@@ -112,13 +131,26 @@ export function createRoundScreen(
 
   renderHistory();
 
-  return el("section", {
+  const section = el("section", {
     className: "round",
     children: [
       el("p", { className: "round__mode", text: modeLabel }),
+      clock,
+      win,
       message,
       form,
       history,
     ],
   });
+
+  const clockId = window.setInterval(() => {
+    if (!section.isConnected || round.status === "won") {
+      window.clearInterval(clockId);
+      return;
+    }
+
+    clock.textContent = formatDuration(Date.now() - round.startedAt);
+  }, 1000);
+
+  return section;
 }
