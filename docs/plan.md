@@ -13,10 +13,10 @@
 ## Next (для нового чата)
 
 ```text
-docs/design
+feat/readme-deploy
 ```
 
-«Новая игра» уже в `bulls-and-cows`. Следующий запуск — `DESIGN.md` по уже написанному коду.
+`DESIGN.md` уже в `bulls-and-cows`. Следующий запуск — деплой и текст сдаточного PR.
 
 ---
 
@@ -46,7 +46,7 @@ main
     ├── [done] feat/win                  # победа, попытки, замершее время
     ├── [done] feat/leaderboard          # запись в localStorage и таблица
     ├── [done] feat/new-game             # назад к настройкам без перезагрузки
-    ├── [    ] docs/design               # DESIGN.md по уже написанному коду
+    ├── [done] docs/design               # DESIGN.md по уже написанному коду
     └── [    ] feat/readme-deploy        # запуск, Pages, текст сдаточного PR
 ```
 
