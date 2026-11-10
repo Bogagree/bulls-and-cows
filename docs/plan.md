@@ -13,10 +13,10 @@
 ## Next (для нового чата)
 
 ```text
-feat/valid-guess
+feat/evaluate-guess
 ```
 
-`createDigitValidator` уже в `bulls-and-cows`. Следующий запуск — пара `test:` и `feat:` для `isValidGuess`. Коммиты и один push — после одобрения, когда `npm test` зелёный.
+`isValidGuess` уже в `bulls-and-cows`. Следующий запуск — пара `test:` и `feat:` для `evaluateGuess`. Коммиты и один push — после одобрения, когда `npm test` зелёный.
 
 ---
 
@@ -34,7 +34,7 @@ main
     ├── [done] chore/tooling             # TypeScript, ESLint, Prettier, Jest, tsc
     ├── [done] chore/husky               # pre-commit = lint-staged, pre-push = npm test
     ├── [done] feat/digit-validator      # createDigitValidator, красный затем зелёный
-    ├── [    ] feat/valid-guess          # isValidGuess через фабрику цифр
+    ├── [done] feat/valid-guess          # isValidGuess через фабрику цифр
     ├── [    ] feat/evaluate-guess       # evaluateGuess на filter/reduce
     ├── [    ] feat/generate-secret      # generateSecret(random)
     ├── [    ] feat/possible-secrets     # рекурсия + мемоизация
